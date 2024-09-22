@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,7 +13,7 @@ import Sidebar from '@/sections/Sidebar';
 
 function App() {
   return (
-    <Fragment>
+    <>
       <CssBaseline />
       <Notifications />
       <HotKeys />
@@ -24,7 +23,7 @@ function App() {
         <Sidebar />
         <Pages />
       </BrowserRouter>
-    </Fragment>
+    </>
   );
 }
 

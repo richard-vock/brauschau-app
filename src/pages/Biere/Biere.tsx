@@ -1,5 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
+import { useLocalStorage } from 'usehooks-ts';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -29,7 +30,10 @@ function Biere() {
     setCollapsed(newCollapsed);
   };
 
-  const [rating, setRating] = React.useState<{ [key: string]: { [metric: string]: number } }>({});
+  const [rating, setRating] = useLocalStorage<{ [key: string]: { [metric: string]: number } }>(
+    'rating',
+    {},
+  );
   const getRating = (beer_id: string, metric: string) => {
     return rating[beer_id]?.[metric] ?? 0;
   };

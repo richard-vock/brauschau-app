@@ -1,13 +1,9 @@
 {
-  "name": "react-pwa",
+  "name": "Bonner Brauschau App",
   "version": "2.3.0",
   "type": "module",
-  "description": "Starter kit for modern web applications",
-  "homepage": "https://react-pwa.surenatoyan.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/suren-atoyan/react-pwa.git"
-  },
+  "description": "Bonner Brauschau App",
+  "homepage": "https://app.bonner-brauschau.de/",
   "bugs": {
     "url": "https://github.com/suren-atoyan/react-pwa/issues",
     "email": "contact@surenatoyan.com"

@@ -6,7 +6,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Drawer from '@mui/material/Drawer';
 
 import routes from '@/routes';
 import useSidebar from '@/store/sidebar';
@@ -15,15 +15,7 @@ function Sidebar() {
   const [isSidebarOpen, sidebarActions] = useSidebar();
 
   return (
-    <SwipeableDrawer
-      anchor="left"
-      open={isSidebarOpen}
-      onClose={sidebarActions.close}
-      onOpen={sidebarActions.open}
-      disableBackdropTransition={false}
-      swipeAreaWidth={30}
-      data-pw="sidebar"
-    >
+    <Drawer anchor="left" open={isSidebarOpen} onClose={sidebarActions.close} data-pw="sidebar">
       <List sx={{ width: 250, pt: (theme) => `${theme.mixins.toolbar.minHeight}px` }}>
         {Object.values(routes)
           .filter((route) => route.title)
@@ -36,7 +28,7 @@ function Sidebar() {
             </ListItem>
           ))}
       </List>
-    </SwipeableDrawer>
+    </Drawer>
   );
 }
 

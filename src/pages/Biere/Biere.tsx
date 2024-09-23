@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
@@ -110,31 +111,50 @@ function Biere() {
                 </Stack>
                 {!(collapsed[beer.id] ?? true) && (
                   <Paper sx={{ padding: 2 }}>
-                    <Typography variant="h6">Deine Bewertung</Typography>
-                    <Rating
-                      name="customized-10"
-                      value={getRating(beer.id, 'Geschmack')}
-                      onChange={(event, newValue) => {
-                        updateRating(beer.id, 'Geschmack', newValue);
-                      }}
-                      max={5}
-                    />
-                    <Rating
-                      name="customized-10"
-                      value={getRating(beer.id, 'Geruch')}
-                      onChange={(event, newValue) => {
-                        updateRating(beer.id, 'Geruch', newValue);
-                      }}
-                      max={5}
-                    />
-                    <Rating
-                      name="customized-10"
-                      value={getRating(beer.id, 'Aussehen')}
-                      onChange={(event, newValue) => {
-                        updateRating(beer.id, 'Aussehen', newValue);
-                      }}
-                      max={5}
-                    />
+                    <Typography variant="h6" sx={{ mb: 3 }}>
+                      Deine Bewertung
+                    </Typography>
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <Typography>Geschmack</Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Rating
+                          name="customized-10"
+                          value={getRating(beer.id, 'Geschmack')}
+                          onChange={(event, newValue) => {
+                            updateRating(beer.id, 'Geschmack', newValue);
+                          }}
+                          max={5}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Typography>Geruch</Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Rating
+                          name="customized-10"
+                          value={getRating(beer.id, 'Geruch')}
+                          onChange={(event, newValue) => {
+                            updateRating(beer.id, 'Geruch', newValue);
+                          }}
+                          max={5}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Typography>Aussehen</Typography>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Rating
+                          name="customized-10"
+                          value={getRating(beer.id, 'Aussehen')}
+                          onChange={(event, newValue) => {
+                            updateRating(beer.id, 'Aussehen', newValue);
+                          }}
+                          max={5}
+                        />
+                      </Grid>
+                    </Grid>
                   </Paper>
                 )}
                 <Box>

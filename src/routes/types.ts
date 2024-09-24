@@ -4,9 +4,9 @@ import { PathRouteProps } from 'react-router-dom';
 import type { SvgIconProps } from '@mui/material/SvgIcon';
 
 enum Pages {
-  Welcome,
-  Page1,
-  Page2,
+  // Welcome,
+  Biere,
+  // Sponsoren,
   NotFound,
 }
 

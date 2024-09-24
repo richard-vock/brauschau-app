@@ -1,5 +1,5 @@
 import ThemeIcon from '@mui/icons-material/InvertColors';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,11 +9,11 @@ import Tooltip from '@mui/material/Tooltip';
 
 import { FlexBox } from '@/components/styled';
 import { title } from '@/config';
-import useSidebar from '@/store/sidebar';
+// import useSidebar from '@/store/sidebar';
 import useTheme from '@/store/theme';
 
 function Header() {
-  const [, sidebarActions] = useSidebar();
+  // const [, sidebarActions] = useSidebar();
   const [theme, themeActions] = useTheme();
 
   return (
@@ -21,6 +21,7 @@ function Header() {
       <AppBar color="transparent" elevation={1} position="static">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <FlexBox sx={{ alignItems: 'center' }}>
+            {/*
             <IconButton
               onClick={sidebarActions.toggle}
               size="large"
@@ -30,6 +31,7 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
+            */}
             <Button sx={{ color: '#faaf00' }}>{title}</Button>
           </FlexBox>
           <FlexBox>

@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
@@ -26,7 +27,6 @@ function Biere() {
   const onRatingClick = (beer_id: string) => {
     const newCollapsed = { ...collapsed };
     newCollapsed[beer_id] = !(newCollapsed[beer_id] ?? true);
-    console.log(newCollapsed);
     setCollapsed(newCollapsed);
   };
 
@@ -61,8 +61,8 @@ function Biere() {
     <>
       <Meta title="Biere" />
       <Stack spacing={8} useFlexGap sx={{ justifyContent: 'center' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', paddingTop: 2 }}>
-          <Typography variant="h3">Die Biere</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 2 }}>
+          <Typography variant="h3">Die Biere 2024</Typography>
         </Box>
 
         {isLoading ? (
@@ -169,10 +169,41 @@ function Biere() {
                   <Typography sx={{ color: '#444' }}>Stammwürze: {beer.gravity}</Typography>
                   <Typography sx={{ color: '#444' }}>IBU: {beer.ibu}</Typography>
                 </Stack>
+                {beer.untappd ? (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '0.5em' }}>
+                    <Typography sx={{ color: '#444' }}>Untappd:</Typography>
+                    <Link
+                      href={beer.untappd}
+                      color="#bf932c"
+                      target="_blank"
+                      sx={{ overflow: 'hidden' }}
+                    >
+                      {beer.untappd}
+                    </Link>
+                  </Box>
+                ) : null}
+                {beer.recipe ? (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '0.5em' }}>
+                    <Typography sx={{ color: '#444' }}>Rezept:</Typography>
+                    <Link
+                      href={beer.recipe}
+                      color="#bf932c"
+                      target="_blank"
+                      sx={{ overflow: 'hidden' }}
+                    >
+                      {beer.recipe}
+                    </Link>
+                  </Box>
+                ) : null}
               </Stack>
             ))}
           </Stack>
         )}
+        {/*
+        <Box sx={{ display: 'flex', justifyContent: 'center', paddingTop: 2 }}>
+          <Typography variant="h3">FAQ</Typography>
+        </Box>
+        */}
       </Stack>
     </>
   );

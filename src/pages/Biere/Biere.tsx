@@ -10,12 +10,14 @@ import Paper from '@mui/material/Paper';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 
+import useTheme from '@/store/theme';
 import useDB from '@/hooks/useDB';
 import Meta from '@/components/Meta';
 import Loading from '@/components/Loading';
 
 function Biere() {
   const db = useDB();
+  const [theme] = useTheme();
   const { isLoading, data } = db.useQuery({ beers: { groups: {} } });
   const beers = data?.beers ?? [];
   beers.sort((a, b) => {
@@ -165,13 +167,21 @@ function Biere() {
                   <Markdown>{beer.description}</Markdown>
                 </Box>
                 <Stack direction="row" spacing={4}>
-                  <Typography sx={{ color: '#444' }}>Alk: {beer.abv}%</Typography>
-                  <Typography sx={{ color: '#444' }}>Stammwürze: {beer.gravity}</Typography>
-                  <Typography sx={{ color: '#444' }}>IBU: {beer.ibu}</Typography>
+                  <Typography sx={{ color: theme === 'dark' ? '#999' : '#333' }}>
+                    Alk: {beer.abv}%
+                  </Typography>
+                  <Typography sx={{ color: theme === 'dark' ? '#999' : '#333' }}>
+                    Stammwürze: {beer.gravity}
+                  </Typography>
+                  <Typography sx={{ color: theme === 'dark' ? '#999' : '#333' }}>
+                    IBU: {beer.ibu}
+                  </Typography>
                 </Stack>
                 {beer.untappd ? (
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '0.5em' }}>
-                    <Typography sx={{ color: '#444' }}>Untappd:</Typography>
+                    <Typography sx={{ color: theme === 'dark' ? '#999' : '#333' }}>
+                      Untappd:
+                    </Typography>
                     <Link
                       href={beer.untappd}
                       color="#bf932c"
@@ -184,7 +194,9 @@ function Biere() {
                 ) : null}
                 {beer.recipe ? (
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '0.5em' }}>
-                    <Typography sx={{ color: '#444' }}>Rezept:</Typography>
+                    <Typography sx={{ color: theme === 'dark' ? '#999' : '#333' }}>
+                      Rezept:
+                    </Typography>
                     <Link
                       href={beer.recipe}
                       color="#bf932c"

@@ -64,7 +64,7 @@ function Biere() {
       <Meta title="Biere" />
       <Stack spacing={8} useFlexGap sx={{ justifyContent: 'center' }}>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 2 }}>
-          <Typography variant="h3">Die Biere 2024</Typography>
+          <Typography variant="h3">Die Biere 2025</Typography>
         </Box>
 
         {isLoading ? (
